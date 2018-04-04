@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	alert("Welcome");
+</script>
+</head>
+<body ng-app="myApp">
+	<h3>Single Page Application in AngularJS</h3>
+	<hr/>
+	<a href="#!Home">Home</a>
+	<a href="#!Students">Students</a>
+	<a href="#!Courses">Courses</a>
+	<a href="#!AboutUs">About Us</a>
+	<hr/>
+	<div ng-view>
+	</div>
+	<script src="scripts/angular.js"></script>
+	<script src="scripts/angular-route.js"></script>
+	<script src="scripts/app.js"></script>
+</body>
+</html>

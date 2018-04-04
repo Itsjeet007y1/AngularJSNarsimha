@@ -1,0 +1,33 @@
+var app=angular.module("myApp",["ngRoute"]);
+app.controller("StudentController",function($scope){
+	$scope.students=
+		[
+			{sname:"Smith",course:"Html"},
+			{sname:"Scott",course:"jQuery"}
+		];
+});
+app.controller("CourseController",function($scope){
+	$scope.courses=["Html","Css","jQuery"];
+});
+app.config(function($routeProvider){
+	$routeProvider
+	.when("/Students",{
+		templateUrl:"Students.html",
+		controller:"StudentController"
+	})
+	.when("/Courses",{
+		templateUrl:"Courses.html",
+		controller:"CourseController"
+	})
+	.when("/AboutUs",{
+		templateUrl:"AboutUs.html",
+		controller:""
+	})
+	.when("/Home",{
+		templateUrl:"Home.html",
+		controller:""
+	})
+	.otherwise({
+		redirectTo:"/Home"
+	});
+});
