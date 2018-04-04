@@ -1,0 +1,57 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+		<style>
+			img {
+				width:160px;
+				height:100px
+				padding:2px;
+			}
+			.c1 {
+				text-align:center;
+				width:220px;
+				float:left;
+				height:190px;
+				margin:10px;
+				border:1px solid blue;
+				border-radius:5px;
+				padding:20px;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope){
+				$scope.x="brand";
+				$scope.y=false;
+				$scope.pObj=[{pname:'New Sony Camera',picture:'prd1.jpg',price:10000,brand:'Sony'},
+							 {pname:'15 inch HCL Laptop',picture:'prd2.jpg',price:25000,brand:'HCL'},
+							 {pname:'New HP Laser Printer',picture:'prd3.jpg',price:35000,brand:'HP'},
+							 {pname:'Old Nokia Mobile',picture:'prd4.jpg',price:15000,brand:'Nokia'},
+							 {pname:'G-Series Samsung Mobile',picture:'prd5.jpg',price:35000,brand:'Samsung'},
+							 {pname:'New Nikon Digital Camera',picture:'prd6.jpg',price:95000,brand:'Nikon'},
+							 {pname:'Waterproof Micromax Mobile',picture:'prd7.jpg',price:155000,brand:'Micromax'},
+							 {pname:'DustProof Kotak Camera',picture:'prd8.jpg',price:65000,brand:'Kotak'}];
+			});
+		</script>
+		<h1 style="color:green">Product Details and Sorting using filter</h1>
+		<hr/>
+		<div ng-controller="myCtrl">
+		Sort By: <select ng-model="x">
+					<option>brand</option>
+					<option>pname</option>
+					<option>price</option>
+				</select>&nbsp; &nbsp; &nbsp;
+				Price <a href="#" ng-click="x='price';y=false;">Low to High</a>&nbsp; &nbsp; &nbsp;
+				Price <a href="#" ng-click="x='price';y=!y;">High to Low</a>
+				<br><br>
+			<div ng-repeat="item in pObj |orderBy:x:y" class="c1">
+				<span style="color:maroon;">{{item.pname}}</span><br><br>
+				<img src="Product/{{item.picture}}"/><br>
+				<span style="color:red;">{{item.price | currency: "&#8377; "}}</span><br>
+				<span>{{item.brand}}</span>
+			</div>
+		</div>
+	</body>
+</body>

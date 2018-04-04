@@ -1,0 +1,23 @@
+<value>
+	<head></head>
+	<body>
+		<h1>Accessing Dynamic values using function</h1>
+		Employee ID:<span id="sp1"></span><br>
+		Employee Name:<span id="sp2"></span><br>
+		Employee Salary:<span id="sp3"></span><br>
+		<input type="button" value="Get Details" onclick="f1()"/>
+		<script>
+			function f1(){
+				var id=101;
+				var name="Jitendra";
+				var salary=50000;
+				var obj1=document.getElementById("sp1");
+				var obj2=document.getElementById("sp2");
+				var obj3=document.getElementById("sp3");
+				obj1.innerText=id;
+				obj2.innerText=name;
+				obj3.innerText=salary;
+			}
+		</script>
+	</body>
+</value>

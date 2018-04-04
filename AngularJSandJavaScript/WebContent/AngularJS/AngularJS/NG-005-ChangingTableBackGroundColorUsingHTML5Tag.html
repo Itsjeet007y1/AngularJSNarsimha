@@ -1,0 +1,42 @@
+﻿<!-- Changing table background color-->
+<html>
+	<head>
+		<script src="angular.js">
+		</script>
+	</head>
+	<h1>Changing the table Background color</h1>
+	<hr/>
+	<body ng-app="" align="center">
+		<div ng-init="color='white'">
+			Select color: <input type="color" ng-model="color"/>
+			<br><br>
+			<table bgcolor="{{color}}" border="2" align="center">
+				<tr>
+					<th>SNO</th>
+					<th>SNAME</th>
+					<th>Course</th>
+				</tr>
+				<tr>
+					<td>101</td>
+					<td>Jitendra</td>
+					<td>MCA</td>
+				</tr>
+				<tr>
+					<td>102</td>
+					<td>Dharmendra</td>
+					<td>PHD</td>
+				</tr>
+				<tr>
+					<td>103</td>
+					<td>Ram</td>
+					<td>Science</td>
+				</tr>
+				<tr>
+					<td>104</td>
+					<td>Satyam</td>
+					<td>Analyst</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

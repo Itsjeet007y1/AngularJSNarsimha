@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<h1>Math Operations Using Multiple Operations</h1>
+		<hr/>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope){
+				$scope.a="";
+				$scope.b="";
+				$scope.s="";
+				$scope.sum=function(){
+					$scope.s=parseInt($scope.a)+parseInt($scope.b);
+				};
+				$scope.sub=function(){
+					$scope.s=parseInt($scope.a)-parseInt($scope.b);
+				};
+				$scope.mul=function(){
+					$scope.s=parseInt($scope.a)*parseInt($scope.b);
+				};
+				$scope.div=function(){
+					$scope.s=parseInt($scope.a)/parseInt($scope.b);
+				};
+			});
+		</script>
+		<div ng-controller="myCtrl">
+			First Number:<input ng-model="a"/><br><br>
+			Second Number: <input ng-model="b"/><br><br>
+			<input type="button" value="sum" ng-click="sum()"/>&nbsp; &nbsp;
+			<input type="button" value="sub" ng-click="sub()"/>&nbsp; &nbsp;
+			<input type="button" value="mul" ng-click="mul()"/>&nbsp; &nbsp;
+			<input type="button" value="div" ng-click="div()"/>&nbsp; &nbsp;<br>
+			<h1 style="color:green">Result: {{s}}</h1>
+		</div>
+	</body>
+</html>

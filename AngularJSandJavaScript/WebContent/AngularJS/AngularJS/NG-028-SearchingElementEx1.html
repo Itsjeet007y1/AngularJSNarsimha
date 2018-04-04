@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<script>
+			var obj=angular.module("myApp",[]);
+			obj.controller("myCtrl",function($scope){
+				$scope.obj={sname:"",course:""};
+				$scope.students=[{sname:'Smith',course:'Java'},
+								 {sname:'Scott',course:'AngularJS'},
+								 {sname:'John',course:'jQuery'},
+								 {sname:'Lucy',course:'Java'},
+								 {sname:'Stark',course:'AngularJS'},
+								 {sname:'Scarlet',course:'jQuery'},
+								 {sname:'Daniell',course:'Java'},
+								 {sname:'James',course:'AngularJS'},
+								 {sname:'Rhod',course:'jQuery'},
+								 {sname:'Wordsworth',course:'Java'}];
+			});
+		</script>
+		<h1>Student search by Using AngularJS Filter</h1>
+		<hr/>
+		<div ng-controller="myCtrl">
+			Search Student: <input type="text" ng-model="obj.sname"/><br><br>
+			Course:<select ng-model="obj.course">
+					<option>Java</option>
+					<option>AngularJS</option>
+					<option>jQuery</option>
+					<option value="">All Courses</option>
+				   </select>
+				   <br><br>
+			<table border="2" width="300">
+				<tr>
+					<th>SNO</th>
+					<th>sname</th>
+					<th>Course</th>
+				</tr>
+				<tr ng-repeat="item in students | filter:obj">
+					<td>{{$index+1}}</td>
+					<td>{{item.sname}}</td>
+					<td>{{item.course}}</td>
+				</tr>
+		</div>
+	</body>
+</html>

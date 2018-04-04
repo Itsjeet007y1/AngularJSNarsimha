@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<script src="angular.js">
+		</script>
+		<style>
+			.c1 {
+				border:2px solid blue;
+				margin:5px;
+				padding:3px;
+				text-align:center;
+				float:left;
+				width:100px;
+				background-color:green;
+				color:white;
+				border-radius:10px;
+			}
+		</style>
+	</head>
+	<script>
+		var app=angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope) {
+			$scope.x="List";
+			$scope.students=[{sid:101,sname:'Jitendra',course:'MCA'},
+							  {sid:102,sname:'Dharmendra',course:'in Fashion'},
+							  {sid:103,sname:'Sandeep',course:'in Fashion'},
+							  {sid:104,sname:'Mahendra',course:'MBA'},
+							  {sid:105,sname:'Rajendra',course:'Accounted'}];
+		});
+	</script>
+	<body ng-app="myApp">
+		<h2>ng-switch demonstration</h2><hr/>
+		<h3>Change List box item below to change the Style</h3>
+		<div ng-controller="myCtrl">
+			Select Style: 
+			<select ng-model="x">
+				<option>List</option>
+				<option>Table</option>
+				<option>Custom</option>
+			</select><br><br>
+			<div ng-switch="x">
+			
+			<!-- To get values as List -->
+				<div ng-switch-when="List">
+					<div ng-repeat="item in students">
+						Student No: <span style="color:red">{{item.sid}}</span>
+						 Mr./Mrs. <span style="color:green">{{item.sname | uppercase}}</span>
+						  is doing <span style="color:orange">{{item.course}}</span>
+					</div>
+				</div>
+			
+			<!-- To get values as Table -->
+				<div ng-switch-when="Table">
+					<table border="2">
+						<tr>
+							<th>Sno</th>
+							<th>Sname</th>
+							<th>Course</th>
+						</tr>
+						<tr ng-repeat="item in students">
+							<td>{{item.sid}}</td>
+							<td>{{item.sname | uppercase}}</td>
+							<td>{{item.course}}</td>
+						</tr>
+					</table>
+				</div>
+				
+			<!-- To get values in Customized order -->
+				<div ng-switch-when="Custom">
+					<div ng-repeat="item in students" class="c1">
+						{{item.sid}}<br>
+						{{item.sname | uppercase}}<br>
+						{{item.course | uppercase}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

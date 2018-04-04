@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+	</head>
+	<script>
+		var app=angular.module("myApp",[]);
+		app.controller("myctrl",function($scope) {
+			$scope.sid=101;
+			$scope.sname='Jitendra';
+			$scope.courses=['AngularJS','JavaScript','CSS3'];
+			$scope.dept={deptNo:1001,deptName:'CA',deptHead:'Scott'};
+		});
+	</script>
+	<body ng-app="myApp">
+		<h1>Controller Example in AngularJS</h1>
+		<hr/>
+		<div ng-controller="myctrl">
+			<p>
+				Student Id: {{sid}}<br>
+				Student Name: {{sname}}<br>
+			</p>
+			Courses:
+			<ul>
+				<li ng-repeat="item in courses">
+					{{item}}
+				</li>
+			</ul>
+			Department Details:
+			<p>
+				Dept No: {{dept.deptNo}}<br>
+				Dept Name: {{dept.deptName}}<br>
+				Dept Head: {{dept.deptHead}}<br>
+			</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<style>
+			img
+			{
+				border:1px solid black;
+				padding:2px;
+				width:160px;
+				height:100px;
+				border-radius:10%;
+			}
+			.c1
+			{
+				text-align:center;
+				width:170px;
+				float:left;
+				margin:10px;
+			}
+		</style>
+	</head>
+	<body ng-app="">
+		<h2>AngularJS Program</h2>
+		<hr/>
+		<div ng-init="img=['image1','image2','image3','image4',
+							'image5','image6','image7','image8']">
+			<div ng-repeat="item in img" class="c1">
+				<img ng-src="Images/{{item}}.jpg"/>
+				<span>{{item}}</span>
+			</div>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+</html>

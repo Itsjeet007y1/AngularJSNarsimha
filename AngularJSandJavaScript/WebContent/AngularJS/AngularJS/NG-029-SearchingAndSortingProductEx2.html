@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+		<style>
+			.c1 {
+				text-align:center;
+				height:190px;
+				padding:20px;
+			}
+			img {
+				width:160px;
+				height:100px
+				padding:2px;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<script>
+			var obj=angular.module("myApp",[]);
+			obj.controller("prdCtrl",function($scope){
+				$scope.obj={pname:"",brand:""};
+				$scope.x="brand";
+				$scope.y=false;
+				$scope.prdObj=[{pname:'New Sony Camera',picture:'prd1.jpg',price:10000,brand:'Sony'},
+							 {pname:'15 inch HCL Laptop',picture:'prd2.jpg',price:25000,brand:'HCL'},
+							 {pname:'New HP Laser Printer',picture:'prd3.jpg',price:35000,brand:'HP'},
+							 {pname:'Old Nokia Mobile',picture:'prd4.jpg',price:15000,brand:'Nokia'},
+							 {pname:'G-Series Samsung Mobile',picture:'prd5.jpg',price:35000,brand:'Samsung'},
+							 {pname:'New Nikon Digital Camera',picture:'prd6.jpg',price:95000,brand:'Nikon'},
+							 {pname:'Waterproof Micromax Mobile',picture:'prd7.jpg',price:155000,brand:'Micromax'},
+							 {pname:'DustProof Kotak Camera',picture:'prd8.jpg',price:65000,brand:'Kotak'}];
+			});
+		</script>
+		<h1> Product Details with searching and sorting operations</h1>
+		<hr/>
+		<div ng-controller="prdCtrl">
+			<table border="2" width="1000">
+				<tr>
+					<td><input type="text" placeholder="Enter product Name" ng-model="obj.pname"</td>
+					<td>
+						<select ng-model="x">
+							<option>brand</option>
+							<option>pname</option>
+							<option>price</option>
+							<option value="">All Item</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th><a href="#" ng-click="x='pname';y=!y;">Product</a></th>
+					<th><a href="#" ng-click="x='brand';y=!y;">Brand</a></th>
+					<th><a href="#" ng-click="x='price';y=!y;">Price</a></th>
+					<th>Image</th>
+				</tr>
+				<tr ng-repeat="item in prdObj | orderBy:x:y |filter:obj">
+					<td class="c1">{{item.pname}}</td>
+					<td class="c1">{{item.brand}}</td>
+					<td class="c1">{{item.price |currency:"&#8377; "}}</td>
+					<td class="c1"><img src="Product/{{item.picture}}"/></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

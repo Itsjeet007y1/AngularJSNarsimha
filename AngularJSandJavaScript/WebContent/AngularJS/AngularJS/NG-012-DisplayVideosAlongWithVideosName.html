@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<style>
+			video
+			{
+				border:1px solid black;
+				padding:2px;
+				width:160px;
+				height:100px;
+				border-radius:5%;
+			}
+			.c1
+			{
+				text-align:center;
+				width:170px;
+				float:left;
+				margin:10px;
+			}
+		</style>
+	</head>
+	<body ng-app="">
+		<h2>AngularJS Program</h2>
+		<hr/>
+		<div ng-init="vid=['Video1','Video2','Video3','Video4',
+							'Video5','Video6','Video7','Video8']">
+			<div ng-repeat="item in vid" class="c1">
+				
+				<video controls preload>
+					<source src="Videos/{{item}}.mp4" type="video/mp4">
+				</video>
+				<span>{{item}}</span>
+			</div>
+		</div>
+	</body>
+	<script src="angular.js"></script>
+</html>

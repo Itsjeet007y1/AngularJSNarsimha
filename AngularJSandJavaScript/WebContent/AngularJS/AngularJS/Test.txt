@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" w3-test-directive></div>
+<input type="button" value="click me" onclick="f1()"/>
+
+<script>
+function f1(){
+var app = angular.module("myApp", []);
+app.directive("w3TestDirective", function() {
+    return {
+        template : "I was made in a directive constructor!"
+    };
+});
+}
+</script>
+
+</body>
+</html>

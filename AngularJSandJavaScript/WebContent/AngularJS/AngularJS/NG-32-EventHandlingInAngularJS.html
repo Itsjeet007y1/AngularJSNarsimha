@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope) {
+				$scope.uname="";
+				$scope.str="";
+				$scope.f1=function(){
+					$scope.str="Welcome to "+$scope.uname;
+				};
+			});
+		</script>
+		<h1>Event handling in AngularJS</h1>
+		<hr/>
+		<div ng-controller="myCtrl">
+			Enter user Name: <input ng-model="uname"/><br>
+			<br>
+			<input type="button" value="Get Message" ng-click="f1()"/>
+			<h1>{{str}}</h1>
+		</div>
+	</body>
+</html>

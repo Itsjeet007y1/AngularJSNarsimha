@@ -1,0 +1,18 @@
+<html>
+	<head></head>
+	<body>
+		<h3>Click the below button to Show employee Details</h3>
+		<input type="button" value="Get Employee Details" onclick="f1()"/>
+		<p id="p"></p>
+		<script>
+			function f1(){
+				var p=document.getElementById("p");
+				var empObj={id:101,name:"Jeet",job:"Developer",sal:50000};
+				p.innerHTML="EmpId:"+empObj.id+
+							"<br>EmpName:"+empObj.name+
+							"<br>Job:"+empObj.job+
+							"<br>Salary:"+empObj.sal;
+			}
+		</script>
+	</body>
+</html>

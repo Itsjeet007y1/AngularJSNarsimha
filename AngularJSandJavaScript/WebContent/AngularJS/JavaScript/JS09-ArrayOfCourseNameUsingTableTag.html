@@ -1,0 +1,17 @@
+<html>
+	<head></head>
+	<body>
+		<h1>Java Script Programming Language</h1>
+		<table border="1" id="list">
+		</table>
+		<script>
+			var ar=["HTML","CSS","JQuery","AngularJS"];
+			var obj=document.getElementById("list");
+			var str="";
+			for(var i=0;i<ar.length;++i){
+				str=str+"<tr><td>"+ar[i]+"</td></tr>";
+			}
+			obj.innerHTML=str;
+		</script>
+	</body>
+</html>

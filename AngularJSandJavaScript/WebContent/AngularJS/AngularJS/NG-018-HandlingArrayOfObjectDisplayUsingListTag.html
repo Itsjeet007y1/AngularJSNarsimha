@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<script src="angular.js">
+		</script>
+	</head>
+	<script>	
+		var app=angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope) {
+			$scope.students=[ {sid:101,sname:'Jitendra',course:'MCA'},
+							  {sid:102,sname:'Dharmendra',course:'in Fashion'},
+							  {sid:103,sname:'Sandeep',course:'in Fashion'},
+							  {sid:104,sname:'Mahendra',course:'MBA'},
+							  {sid:105,sname:'Rajendra',course:'Accounted'}];
+		});
+	</script>
+	<body ng-app="myApp">
+		<h2>Working with array of objects</h2><hr/>
+		<div ng-controller="myCtrl">
+			<div ng-repeat="item in students">
+			Student No <span style="color:red">{{item.sid}}</span>
+			 Mr./Mrs. <span style="color:green">{{item.sname}}</span> is
+			  doing <span style="color:orange">{{item.course}}</span><br>
+			<div>
+		</div>
+	</body>
+</html>

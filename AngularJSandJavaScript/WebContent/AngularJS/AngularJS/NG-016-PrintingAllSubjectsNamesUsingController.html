@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<script src="angular.js">
+		</script>
+	</head>
+	<script>
+		var app=angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope){
+			$scope.subjects=['HTML','CSS3','AngularJS','JavaScript','HTML5','JSP'];
+		});
+	</script>
+	<body ng-app="myApp">
+		<h2>Printing all subjects of a Student(Use of '$index'-global variable)</h2><hr/>
+		<div ng-controller="myCtrl">
+			<ul>
+				<li ng-repeat="item in subjects">
+					Subject-{{$index+1}}: {{item}}
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

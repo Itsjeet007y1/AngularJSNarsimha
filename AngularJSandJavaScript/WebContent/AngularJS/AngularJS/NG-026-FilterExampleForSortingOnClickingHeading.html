@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+		<style>
+			a {
+				text-decoration:none;
+				color:black;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope) {
+				$scope.x="eno";
+				$scope.y=false;
+				$scope.empObj=[{eno:135,ename:'Jitendra',desg:'Developer',salary:655410000},
+							   {eno:102,ename:'Dharmendra',desg:'Manager',salary:35490000},
+							   {eno:136,ename:'Surendra',desg:'Analyst',salary:67475000},
+							   {eno:124,ename:'Rajendra',desg:'Clerk',salary:36585000},
+							   {eno:155,ename:'Mahendra',desg:'Activist',salary:6595000},
+							   {eno:166,ename:'Yogendra',desg:'Editor',salary:99511000},
+							   {eno:117,ename:'Gyanendra',desg:'Typist',salary:95412000},
+							   {eno:188,ename:'Abhinendra',desg:'Leader',salary:12313000},
+							   {eno:139,ename:'Jogendra',desg:'Designer',salary:65415400},
+							   {eno:190,ename:'Dhirendra',desg:'Administrator',salary:32149500},
+							   {eno:161,ename:'Manvendra',desg:'HumanResource',salary:21510500},
+							   {eno:182,ename:'Sukhvendra',desg:'DBA',salary:2311111500}];
+			});
+		</script>
+		<div ng-controller="myCtrl">
+			<h1>Sorting by Clicking on column heading</h1><hr/>
+			<table border="2">
+				<tr>
+					<th><a href="#" ng-click="x='sno'; y=!y;">ENO</a></th>
+					<th><a href="#" ng-click="x='ename'; y=!y;">ENAME</a></th>
+					<th><a href="#" ng-click="x='desg'; y=!y;">DESIGNATION</a></th>
+					<th><a href="#" ng-click="x='salary'; y=!y;">SALARY</a></th>
+				</tr>
+				<tr ng-repeat="item in empObj | orderBy:x:y">
+					<td>{{item.eno}}</td>
+					<td>{{item.ename}}</td>
+					<td>{{item.desg}}</td>
+					<td>{{item.salary |currency :"&#8360; "}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

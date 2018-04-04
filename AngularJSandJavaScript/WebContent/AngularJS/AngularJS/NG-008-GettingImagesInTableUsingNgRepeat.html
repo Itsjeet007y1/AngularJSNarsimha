@@ -1,0 +1,23 @@
+﻿<!--Getting all images in table using ng-repeat directive-->
+<html>
+	<head>
+		<script src="angular.js"></script>
+	</head>
+	<body ng-app="">
+		<h1>Getting all Images and names in tabular format using ng-repeat directive</h1>
+		<hr/>
+		<div ng-init="img=['image1.jpg','image2.jpg','image3.jpg','image4.jpg',
+							'image5.jpg','image6.jpg','image7.jpg']">
+			<table border="2" width="900" cellspacing="10" cellpadding="10">
+				<tr>
+					<th>Ino</th><th>Img Name</th><th>Image</th>
+				</tr>
+				<tr ng-repeat="item in img">
+					<td>{{$index+1}}</td>
+					<td>{{item}}</td>
+					<td><img src="Images/{{item}}" width="300" height="200" border="5px solid blue"/></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

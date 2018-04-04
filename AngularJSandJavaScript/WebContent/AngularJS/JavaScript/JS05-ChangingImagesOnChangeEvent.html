@@ -1,0 +1,22 @@
+<html>
+	<head></head>
+	<body>
+		<h1>Java Script Programming</h1>
+		<select id="s1" onchange="f1()">
+			<option>image1.jpg</option>
+			<option>image2.jpg</option>
+			<option>image3.jpg</option>
+			<option>image4.jpg</option>
+			<option>image5.jpg</option>
+			<option>image6.jpg</option>
+		</select><br><br>
+		<img src="Images\image1.jpg" id="img1" width="300" height="200"/>
+		<script>
+			function f1(){
+				var obj1=document.getElementById("s1");
+				var obj2=document.getElementById("img1");
+				obj2.src="Images/"+obj1.value;
+			}
+		</script>
+	</body>
+</html>

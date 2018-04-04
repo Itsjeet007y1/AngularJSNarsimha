@@ -1,0 +1,24 @@
+﻿<!--Display selected image using ng-app directive-->
+<html>
+	<head>
+		<script src="angular.js">
+		</script>
+	</head>
+	<body ng-app="">
+		<h1>Angular JS Images Selection using Select tag</h1>
+		<hr/>
+		<div ng-init="x='image1.jpg'">
+		Select Image:
+			<select ng-model='x'>
+				<option>image1.jpg</option>
+				<option>image2.jpg</option>
+				<option>image3.jpg</option>
+				<option>image4.jpg</option>
+				<option>image5.jpg</option>
+			</select>
+			<br><br>
+			<img src="Images/{{x}}" width="300" height="200"/ border="5px solid Blue"><br><br>
+			<h3>Image Name: {{x}}</h3>
+		</div>
+	</body>
+</html>

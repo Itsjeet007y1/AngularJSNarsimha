@@ -1,0 +1,65 @@
+<html>	
+	<head>
+		<script src="angular.js"></script>
+		<style>
+			.c1{background-color:lightblue;}
+			.c2{background-color:lightgreen;}
+			.c3{background-color:lightpink;}
+			.c4{background-color:yellow;}
+			.c5{background-color:red;}
+			.c6{background-color:green;}
+			table {
+				text-align:center;
+				align:center;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope){
+				$scope.n=3;
+				$scope.ar=[{sname:'Scott',course:'AngularJS'},
+						   {sname:'Smith',course:'jQuery'},
+						   {sname:'Paul',course:'CSS'},
+						   {sname:'Johnson',course:'HTML5'},
+						   {sname:'Ramsay',course:'JSP'},
+						   {sname:'Lucy',course:'BootStrap'},
+						   {sname:'Scarlet',course:'Asp.net'},
+						   {sname:'Stark',course:'PHP'},
+						   {sname:'Anderson',course:'Ruby'},
+						   {sname:'Potter',course:'Java'},
+						   {sname:'Scott',course:'AngularJS'},
+						   {sname:'Smith',course:'jQuery'},
+						   {sname:'Paul',course:'CSS'},
+						   {sname:'Johnson',course:'HTML5'},
+						   {sname:'Ramsay',course:'JSP'},
+						   {sname:'Lucy',course:'BootStrap'},
+						   {sname:'Scarlet',course:'Asp.net'},
+						   {sname:'Stark',course:'PHP'},
+						   {sname:'Anderson',course:'Ruby'},
+						   {sname:'Potter',course:'Java'}];
+			});
+		</script>
+		<h1>Use of $first, $last, $middle, $even and $odd scope of AngularJS</h1>
+		<hr/>
+		<div ng-controller="myCtrl">
+			<table border="2" width="300">
+				<tr class="c4">
+					<th>SNO</th>
+					<th>Name</th>
+					<th>Course</th>
+				</tr>
+				<!--<tr ng-repeat="item in ar | limitTo:n" ng-class="{c1:$first,c2:$last,c3:$middle}">-->
+				<tr ng-repeat="item in ar | limitTo:n" ng-class="{c1:$odd,c3:$even}">
+				<!--<tr ng-repeat="item in ar | limitTo:n" ng-class="{c1:$first,c5:$odd,c6:$even,c2:$last,c3:$middle}">-->
+					<td>{{$index+1}}</td>
+					<td>{{item.sname}}</td>
+					<td>{{item.course}}</td>
+				</tr>
+			</table>
+			<br><br>
+			<input type="button" ng-click="n=n+4;" ng-show="n<ar.length" value="show More"/>
+		</div>
+	</body>
+</html>

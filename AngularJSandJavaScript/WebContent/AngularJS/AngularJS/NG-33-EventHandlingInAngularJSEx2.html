@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope){
+				$scope.uname="";
+				$scope.pass="";
+				$scope.str="";
+				$scope.f1=function(){
+					if($scope.uname=="Jeet" && $scope.pass=="abc"){
+						$scope.str="Welcome "+$scope.uname+" :)";
+					} else{
+						$scope.str="Username/Password is invalid ! Try Again";
+					}
+				};
+			});
+		</script>
+		<h1>Simple Login app using ng-click directive</h1>
+		<hr/>
+		<div ng-controller="myCtrl">
+			Enter Username:<input ng-model="uname"/><br>
+			Enter Password:<input ng-model="pass"/><br>
+			<br><br>
+			<input type="button" ng-click="f1()" value="Login"/>
+			<br>
+			<h1>{{str}}</h1>
+		</div>
+	</body>
+</html>

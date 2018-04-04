@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<h1>Math Operations Using single Operations</h1>
+		<hr/>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope){
+				$scope.a="";
+				$scope.b="";
+				$scope.s="";
+				$scope.f1=function(n){
+					<!-- Using if statement -->
+					
+					/*if(n==1){
+						$scope.s=parseInt($scope.a)+parseInt($scope.b);
+					}
+					if(n==2){
+						$scope.s=parseInt($scope.a)-parseInt($scope.b);
+					}
+					if(n==3){
+						$scope.s=parseInt($scope.a)*parseInt($scope.b);
+					}
+					if(n==4){
+						$scope.s=parseInt($scope.a)/parseInt($scope.b);
+					} */
+					
+					<!-- Using switch statement -->
+					switch(n) {
+						case 1: $scope.s=parseInt($scope.a)+parseInt($scope.b);
+						break;
+						case 2: $scope.s=parseInt($scope.a)-parseInt($scope.b);
+						break;
+						case 3: $scope.s=parseInt($scope.a)*parseInt($scope.b);
+						break;
+						case 4: $scope.s=parseInt($scope.a)/parseInt($scope.b);
+						break;
+					}
+				};
+			});
+		</script>
+		<div ng-controller="myCtrl">
+			First Number:<input ng-model="a"/><br><br>
+			Second Number: <input ng-model="b"/><br><br>
+			<input type="button" ng-model="Sum" value="sum" ng-click="f1(1)"/>&nbsp; &nbsp;
+			<input type="button" ng-model="Sub" value="sub" ng-click="f1(2)"/>&nbsp; &nbsp;
+			<input type="button" ng-model="Mul" value="mul" ng-click="f1(3)"/>&nbsp; &nbsp;
+			<input type="button" ng-model="Div" value="div" ng-click="f1(4)"/>&nbsp; &nbsp;<br>
+			<h1 style="color:green">Result: {{s}}</h1>
+		</div>
+	</body>
+</html>

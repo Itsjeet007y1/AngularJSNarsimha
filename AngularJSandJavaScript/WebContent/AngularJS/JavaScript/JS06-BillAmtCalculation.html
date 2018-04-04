@@ -1,0 +1,32 @@
+<html>
+	<head></head>
+	<body>
+		Product Name:<input type="text" id="un"/><br><br>
+		Unit Price:<input type="text" id="up"/><br><br>
+		Quantity:<select id="q">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+				</select><br><br>
+		<input type="button" value="Get Total" onclick="f1()"/><br><br>
+		<span id="total"></span>
+		<script>
+			function f1(){
+				var name=document.getElementById("un");
+				var price=document.getElementById("up");
+				var quant=document.getElementById("q");
+				var result=document.getElementById("total");
+				var total;
+				total=parseInt(quant.value)*parseInt(price.value);
+				result.innerText="Total price of "+quant.value+" "+name.value+" is "+total+" INR";
+			}
+		</script>
+	</body>
+</html>

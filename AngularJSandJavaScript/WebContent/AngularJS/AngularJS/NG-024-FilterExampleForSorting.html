@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<script>
+			var app=angular.module("myApp",[])
+			app.controller("myCtrl",function($scope) {
+				$scope.x="sname";
+				$scope.y=false;
+				$scope.stdObj=[{sname:'Jitendra Kumar',course:'Html'},
+								  {sname:'Dharmendra Kumar',course:'CSS'},
+								  {sname:'Mantu',course:'AngularJS'},
+								  {sname:'Santu',course:'Html'},
+								  {sname:'Rajendra',course:'CSS'},
+								  {sname:'Dhone',course:'AngularJS'},
+								  {sname:'Rajpal',course:'JavaScript'},
+								  {sname:'Santosh',course:'CSS'},
+								  {sname:'Rinku',course:'AngularJS'}];
+			});
+		</script>
+		Select the type of Sorting:
+		<div ng-controller="myCtrl">
+			<Select ng-model="x">
+				<option>sname</option>
+				<option>course</option>
+			</select>
+			<br><br>
+			Do You want ascending sorting?
+			<input type="checkbox" ng-model="y"/><br><br>
+			<table border="2">
+				<tr>
+					<th>Name</th>
+					<th>Course</th>
+				</tr>
+				<tr ng-repeat="item in stdObj | orderBy:x:y">
+					<td>{{item.sname}}</td>
+					<td>{{item.course}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

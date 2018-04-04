@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="angular.js">
+		</script>
+	</head>
+	<style>
+		p
+		{
+			height:20px;
+			width:100px;
+			border:1px solid black;
+			padding:2px;
+			background-color:black;
+			border-radius: 15px 50px 30px;;
+		}
+		p:hover
+		{
+			background-color: #f00;
+		}
+		.c1
+		{
+			text-align:center;
+			width:100px;
+			float:left;
+			margin:15px;
+		}
+	</style>
+<body ng-app="">
+<h3>AngularJS programming example</h3><hr/>
+<div ng-init="subject=['php','jQuery','jsp','asp.net','angularJS','Asp.net','Angular5','CSS','HTML5','Angular2$4']">
+	<div class="c1" ng-repeat="crs in subject">
+		<a href="" style="text-decoration:none"><p style="color:white">{{crs}}</p></a>
+	</div>
+</div>
+</body>
+</html>

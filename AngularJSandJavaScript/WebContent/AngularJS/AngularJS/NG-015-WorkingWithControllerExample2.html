@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<script src="angular.js">
+		</script>
+	</head>
+	<script>
+		var anything=angular.module("myApp",[]);
+		anything.controller("myCtrl",function($scope){
+			$scope.empId=101;
+			$scope.empName='Jitendra';
+			$scope.empBelongings=['Bag','Mobile','IDCard','Purse'];
+			$scope.company={cregNo:1020,cName:'Oracle',cAddr:'California'};
+		});
+	</script>
+	<body ng-app="myApp">
+		<div ng-controller="myCtrl">
+			<h2>Employee Details</h2>
+			<hr/>
+			<p>
+				Employee ID: {{empId}}<br>
+				Name: {{empName}}<br>
+			</p>
+			Employee Belongings:
+			<li ng-repeat="item in empBelongings">
+				{{item}}
+			</li>
+			Company Details:
+			<p>
+				Registration Number: {{company.cregNo}}<br>
+				Company Name: {{company.cName}}<br>
+				Address: {{company.cAddr}}
+			</p>
+		</div>
+	</body>
+</html>

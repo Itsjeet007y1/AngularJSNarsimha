@@ -1,0 +1,44 @@
+<html>
+	<head></head>
+	<link href="bootstrap.min.css" rel="stylesheet"/>
+	<body ng-app="myApp">
+		<div ng-controller="DemoController">
+			<div class="btn-group">
+				<input type="button" ng-click="show()"
+					class="btn btn-primary" value="Get Departments"/>
+				<input type="button" ng-class="{'btn btn-success':true}"
+					value="Clear Department" ng-click="clear()"/>
+			</div>
+			<br/>
+			<table class="table" style="color:white" border="2">
+				<tr class="bg-warning">
+					<th>Dname</th>
+					<th>Location</th>
+				</tr>
+				<tr ng-repeat="item in depts" ng-class="{'bg-primary':$even,'bg-info':$odd}">
+					<td>{{item.dname}}</td>
+					<td>{{item.loc}}</td>
+				</tr>
+			</table>
+		</div>
+		<script src="angular.js"></script>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("DemoController",function($scope){
+				$scope.show=function(){
+					$scope.depts=[{dname:"IT",loc:"Delhi"},
+								  {dname:"Civil",loc:"London"},
+								  {dname:"ICE",loc:"Usa"},
+								  {dname:"CD",loc:"America"},
+								  {dname:"CSe",loc:"Switzerlang"},
+								  {dname:"Computer",loc:"Malaysia"},
+								  {dname:"Robotics",loc:"New York"}
+					   ];
+				};
+				$scope.clear=function(){
+					$scope.depts=[];
+				};
+			});
+		</script>
+	</body>
+</html>

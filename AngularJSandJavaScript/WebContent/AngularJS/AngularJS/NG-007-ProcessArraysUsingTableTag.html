@@ -1,0 +1,18 @@
+﻿<!--Use of ng-repeat directive of angular JS using Table tag-->
+<html>
+	<head>
+		<script src="angular.js"></script>
+	</head>
+	<body ng-app="">
+		<h1>Use of ng-repeat in table tag</h1>
+		<hr/>
+		<div ng-init="ar=['HTML','CSS','AngularJS','jQuery','JSP']">
+			<table border="2">
+				<tr><th>Courses</th></tr>
+				<tr ng-repeat="item in ar">
+					<td>{{item}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

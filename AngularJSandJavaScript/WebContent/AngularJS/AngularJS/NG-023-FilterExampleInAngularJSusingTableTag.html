@@ -1,0 +1,32 @@
+<html>
+	<head></head>
+	<script src="Angular.js"></script>
+	<body ng-app="myApp">
+		<h1>Filters Example in AngularJS</h1>
+		<hr/>
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope){
+				$scope.students=[ {sname:'Jitendra Kumar',course:'Html'},
+								  {sname:'Dharmendra Kumar',course:'CSS'},
+								  {sname:'Mantu',course:'AngularJS'},
+								  {sname:'Santu',course:'Html'},
+								  {sname:'Rajendra',course:'CSS'},
+								  {sname:'Dhone',course:'AngularJS'},
+								  {sname:'Rajpal',course:'JavaScript'},
+								  {sname:'Santosh',course:'CSS'},
+								  {sname:'Rinku',course:'AngularJS'}];
+			});
+		</script>
+		<table ng-controller="myCtrl" border="2">	
+			<tr>
+				<th>Name</th>
+				<th>Course</th>
+			</tr>
+			<tr ng-repeat="item in students">
+				<td>{{item.sname | uppercase}}</td>
+				<td>{{item.course | uppercase}}</td>
+			</tr>
+		</table>
+	</body>
+</html>

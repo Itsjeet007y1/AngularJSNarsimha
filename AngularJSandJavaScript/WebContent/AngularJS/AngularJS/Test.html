@@ -1,0 +1,45 @@
+<html>	
+	<head>
+		<script src="angular.js"></script>
+		<style>
+			.c1{background-color:lightblue};
+			.c2{background-color:lightgreen};
+			.c3{background-color:lightpink};
+			.c4{background-color:yellow};
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope){
+				$scope.n=5;
+				$scope.ar=[{sname:'abc',course:'AngularJS'},
+						   {sname:'abc',course:'AngularJS'},
+						   {sname:'abc',course:'AngularJS'},
+						   {sname:'abc',course:'AngularJS'},
+						   {sname:'abc',course:'AngularJS'},
+						   {sname:'abc',course:'AngularJS'},
+						   {sname:'abc',course:'AngularJS'},
+						   {sname:'abc',course:'AngularJS'},
+						   {sname:'abc',course:'AngularJS'},
+						   {sname:'abc',course:'AngularJS'}];
+			});
+		</script>
+		<div ng-controller="myCtrl">
+			<table border="2">
+				<tr class="c4">
+					<th>SNO</th>
+					<th>Name</th>
+					<th>Course</th>
+				</tr>
+				<tr ng-repeat="item in ar | limitTO:n" ng-class="{c1:$first,c2:$last,c3:$middle}">
+					<td>{{$index+1}}</td>
+					<td>{{item.sname}}</td>
+					<td>{{item.course}}</td>
+				</tr>
+			</table>
+			<br><br>
+			<input type="button" ng-click="n=n+5;" ng-show="n<ar.length" value="show More"/>
+		</div>
+	</body>
+</html>

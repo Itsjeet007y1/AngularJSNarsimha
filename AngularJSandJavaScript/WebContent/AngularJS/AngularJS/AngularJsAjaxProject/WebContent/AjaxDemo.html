@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+	alert("Welcome");
+</script>
+</head>
+<body ng-app="myApp">
+	<h2>Ajax Example in AngularJS talking to Database</h2>
+	<hr />
+	<div ng-controller="myCtrl">
+		<input type="button" ng-click="f1()" value="Get Departments">
+		<br>
+		<br>
+		<table border="2" width="400">
+			<tr>
+				<th>Dept No</th>
+				<th>Dept Name</th>
+				<th>Location</th>
+			</tr>
+			<tr ng-repeat="item in depts">
+				<td>{{item.deptno}}</td>
+				<td>{{item.deptName}}</td>
+				<td>{{item.location}}</td>
+			</tr>
+		</table>
+	</div>
+	<script src="angular.js">	
+	</script>
+	<script>
+		var app = angular.module("myApp", []);
+		app.controller("myCtrl", function($scope, $http) {
+			$scope.depts = [];
+			$scope.f1 = function() {
+				$http({
+					url : "GetDepts.jsp",
+					method : "GET",
+					data :"",
+					headers : {
+						"Content-Type" : "application/json"
+					}
+				}).then(function(response) {
+					$scope.depts = response.data;
+				});
+			};
+		});
+	</script>
+</body>
+</html>

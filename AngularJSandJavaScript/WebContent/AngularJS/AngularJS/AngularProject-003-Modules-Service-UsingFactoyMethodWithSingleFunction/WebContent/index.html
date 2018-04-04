@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app="myApp">
+	<div ng-controller="DemoController">
+		<h1>Module creation in angularJs using Factory() function</h1>
+		<hr />
+		First Number: <input ng-model="val1" /><br>
+		<br> Second Number: <input ng-model="val2" /><br>
+		<br> <input type="button" value="Sum" ng-click="f1(1)" /> &nbsp; &nbsp; 
+		<input type="button" value="Sub" ng-click="f1(2)" /> &nbsp; &nbsp;
+		<input type="button" value="Mul" ng-click="f1(3)" /> &nbsp; &nbsp;
+		<input type="button" value="Div" ng-click="f1(4)" /> &nbsp; &nbsp;
+		<h2>Result: {{result}}</h2>
+	</div>
+	<script src="scripts/angular.js"></script>
+	<script src="scripts/app.js"></script>
+</body>
+</html>

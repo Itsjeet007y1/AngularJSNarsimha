@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+		<style>
+			.c1{
+				color:red;
+			}
+		</style>
+	</head>
+	<body ng-app="myApp">
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope){
+				$scope.fname="";
+				$scope.lname="";
+				$scope.city="";
+				$scope.email="";
+				$scope.pincode="";
+			});
+		</script>
+		<div ng-controller="myCtrl">
+			<form name="f1" novalidate action="/register" method="get">
+				<h1 align="center">Form validations in AngualarJS</h1>
+				<hr/>
+				First Name:	<input type="text" name="t1" ng-model="fname" ng-required="true"/>
+				<span class="c1" ng-show="f1.t1.$error.required && f1.t1.$dirty">First Name is Required</span>
+				<br><br>
+				Last Name: 	<input type="text" name="t2" ng-model="lname" ng-required="true"/>
+				<span class="c1" ng-show="f1.t2.$error.required && f1.t2.$dirty">Last name is Required</span>
+				<br><br>
+				City: 		<input type="text" name="t3" ng-model="city" ng-required="true" ng-minlength="3" ng-maxlength="10"/>
+				<span class="c1" ng-show="f1.t3.$error.required && f1.t3.$dirty">Please Enter the City Name</span>
+				<span class="c1" ng-show="f1.t3.$error.minlength && f1.t3.$dirty">City name must be minimum 3 characters long</span>
+				<span class="c1" ng-show="f1.t3.$error.maxlength && f1.t3.$dirty">City name must be maximum 10 characters long</span>
+				<br><br>
+				Email ID: 	<input type="email" name="t4" ng-model="email" ng-required="true"/>
+				<span class="c1" ng-show="f1.t4.$error.required && f1.t4.$dirty">Please enter the Email Id</span>
+				<span class="c1" ng-show="f1.t4.$error.email && f1.t4.$dirty">Please enter the Proper email ID</span>
+				<br><br>
+				Pincode: 	<input type="text" name="t5" ng-model="pincode" ng-pattern="/^\d{6}$/" ng-required="true"/>
+				<span class="c1" ng-show="f1.t5.$error.required && f1.t5.$dirty">Pincode number is Required</span>
+				<span class="c1" ng-show="f1.t5.$error.pattern && f1.t5.$dirty">Pincode must be of 6 Digits Only</span>
+				<br><br>
+				<input type="submit" value="Register" ng-disabled="f1.$invalid"/>
+				
+			</form>
+		</div>
+	</body>
+</html>

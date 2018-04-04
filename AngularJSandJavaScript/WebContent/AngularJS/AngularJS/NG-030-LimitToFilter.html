@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<script>
+			var obj=angular.module("myApp",[]);
+			obj.controller("myCtrl",function($scope){
+				$scope.count="3";
+				$scope.students=[{sname:'Smith',course:'Java'},
+								 {sname:'Scott',course:'AngularJS'},
+								 {sname:'John',course:'jQuery'},
+								 {sname:'Lucy',course:'Java'},
+								 {sname:'Stark',course:'AngularJS'},
+								 {sname:'Scarlet',course:'jQuery'},
+								 {sname:'Daniell',course:'Java'},
+								 {sname:'James',course:'AngularJS'},
+								 {sname:'Rhod',course:'jQuery'},
+								 {sname:'Wordsworth',course:'Java'}];
+			});
+		</script>
+		<h1>Example of limitTo filter in AngularJS</h1>
+		<hr/>
+		<div ng-controller="myCtrl">
+			Select Count Number: <select ng-model="count">
+									<option>3</option>
+									<option>5</option>
+									<option>7</option>
+									<option>12</option>
+								 </select>
+								 <br><br>
+			<table border="2">
+				<tr>
+					<th>SNO</th>
+					<th>sname</th>
+					<th>course</th>
+				</tr>
+				<tr ng-repeat="item in students |limitTo:count">
+					<td>{{$index+1}}</td>
+					<td>{{item.sname}}</td>
+					<td>{{item.course}}</td>
+				</tr>
+		</div>
+	</body>
+</html>

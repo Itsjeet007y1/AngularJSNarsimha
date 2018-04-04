@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<script src="angular.js">
+		</script>
+	</head>
+	<script>	
+		var app=angular.module("myApp",[]);
+		app.controller("myCtrl",function($scope) {
+			$scope.sid=101;
+			$scope.sname="Jitendra";
+			$scope.course="MCA";
+			$scope.subjects=['Java','UItechnologies','OperationgSystem','CLanguage','c++language','DataStructure'];
+		});
+	</script>
+	<body ng-app="myApp">
+		<h2>Student Complete details in tabular format</h2><hr/>
+		<table border="2" ng-controller="myCtrl">
+			<tr>
+				<td>Sno</td>
+				<td>{{sid}}</td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td>{{sname}}</td>
+			</tr>
+			<tr>
+				<td>Course</td>
+				<td>{{course}}</td>
+			</tr>
+			<tr>
+				<td>Subjects</td>
+				<td>
+					<ul ng-repeat="item in subjects">
+						<li>{{item}}</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

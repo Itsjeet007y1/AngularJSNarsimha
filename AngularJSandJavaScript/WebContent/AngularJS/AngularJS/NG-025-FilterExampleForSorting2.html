@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<script src="angular.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<script>
+			var app=angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope) {
+				$scope.x="eno";
+				$scope.y=false;
+				$scope.empObj=[{eno:135,ename:'Jitendra',desg:'Developer',salary:10000},
+							   {eno:102,ename:'Dharmendra',desg:'Manager',salary:90000},
+							   {eno:136,ename:'Surendra',desg:'Analyst',salary:75000},
+							   {eno:124,ename:'Rajendra',desg:'Clerk',salary:85000},
+							   {eno:155,ename:'Mahendra',desg:'Activist',salary:95000},
+							   {eno:166,ename:'Yogendra',desg:'Editor',salary:11000},
+							   {eno:117,ename:'Gyanendra',desg:'Typist',salary:12000},
+							   {eno:188,ename:'Abhinendra',desg:'Leader',salary:13000},
+							   {eno:139,ename:'Jogendra',desg:'Designer',salary:15400},
+							   {eno:190,ename:'Dhirendra',desg:'Administrator',salary:9500},
+							   {eno:161,ename:'Manvendra',desg:'HumanResource',salary:10500},
+							   {eno:182,ename:'Sukhvendra',desg:'DBA',salary:11500}];
+			});
+		</script>
+		<div ng-controller="myCtrl">
+			Select one of the following sorting type:
+			<select ng-model="x">
+				<option>eno</option>
+				<option>ename</option>
+				<option>desg</option>
+				<option>salary</option>
+			</select><br><br>
+			Do you want descending Order sorting?
+			<input type="checkbox" ng-model="y"/><br><br>
+			<table border="2">
+				<tr>
+					<th>ENO</th>
+					<th>ENAME</th>
+					<th>DESIGNATION</th>
+					<th>SALARY</th>
+				</tr>
+				<tr ng-repeat="item in empObj | orderBy:x:y">
+					<td>{{item.eno}}</td>
+					<td>{{item.ename}}</td>
+					<td>{{item.desg}}</td>
+					<td>{{item.salary |currency:"&#8377 "}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>

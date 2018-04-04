@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<script></script>
+		<meta></meta>
+		<link></link>
+		<style></style>
+		<title></title>
+		<base></base>
+		<noscript></noscript>
+	</head>
+	<h1>Java Script Programming</h1>
+	<input type="text" id="t1" placeholder="Enter your name here."/><br><br>
+	<input type="button" value="Get Message" onclick="f1()"/><br><br>
+	<span id="sp1"></span>
+	<script>
+		function f1(){
+			var name=document.getElementById("t1");
+			var msg=document.getElementById("sp1");
+			msg.innerText+="Welcome "+name.value;
+		}
+	</script>
+</html>
