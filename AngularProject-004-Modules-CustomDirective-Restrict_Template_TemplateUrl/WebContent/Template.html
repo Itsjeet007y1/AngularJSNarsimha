@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>Students List</h3>
+	<table border="2">
+		<tr>
+			<th>Sno</th>
+			<th>Name</th>
+			<th>Course</th>
+		</tr>
+		<tr ng-repeat="item in students">
+			<td>{{$index+1}}</td>
+			<td>{{item.sname}}</td>
+			<td>{{item.course}}</td>
+		</tr>
+	</table>
+</body>
+</html>
